@@ -12,3 +12,5 @@ I am trying to build this using TDD and incorporating Robert C. Martin's concept
 - `cd` into the repo in your preffered way
 - Run `npm install`
 - Use Go Live (VS Code) or your preffered way of running the project in a browser. (I've just been opening the file in Chrome and refreshing when needed. And mostly it's all tests right now so not much is happening in the view.)
+- Run `npm test` to run the tests.
+- If you add logic to `app.js`, run `npm build`, then refresh your browser to see the changes.

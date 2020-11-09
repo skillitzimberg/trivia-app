@@ -11,4 +11,4 @@ I am trying to build this using TDD and incorporating Robert C. Martin's concept
 - Clone or fork the repo
 - `cd` into the repo in your preffered way
 - Run `npm install`
-- Use Go Live (VS Code) or your preffered way of viewing running the project in a browser. (I've just been opening the file in Chrome and refreshing when needed.)
+- Use Go Live (VS Code) or your preffered way of running the project in a browser. (I've just been opening the file in Chrome and refreshing when needed. And mostly it's all tests right now so not much is happening in the view.)

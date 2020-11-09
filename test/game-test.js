@@ -46,7 +46,7 @@ describe('Set up a trivia question', () => {
 });
 
 describe('get a random number', () => {
-  it('getRandomIntegerLessThan(someInteger) returns a random number where 0 <= random number >= the integer argument.', () => {
+  it('getRandomIntegerLessThan(someInteger) returns a random number where 0 <= random number <= the integer argument.', () => {
     // Act
     const randomNumber = getRandomIntegerLessThan(5);
 

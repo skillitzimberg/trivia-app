@@ -1,0 +1,18 @@
+{
+  "name": "trivia-app",
+  "version": "1.0.0",
+  "description": "A vanilla JS trivia game built with TDD, sweat, and love.",
+  "main": "app.js",
+  "scripts": {
+    "build": "browserify app.js > bundle.js",
+    "test": "mocha"
+  },
+  "author": "Scott Bergler",
+  "license": "ISC",
+  "devDependencies": {
+    "browserify": "^17.0.0",
+    "chai": "^4.2.0",
+    "jsdom": "^16.4.0",
+    "mocha": "^8.2.1"
+  }
+}

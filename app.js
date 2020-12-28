@@ -159,7 +159,7 @@ function finishGame() {
   hideElement(form);
   displayElement(playButton);
 
-  const score = localStorage.getItem(SCORE);
+  const score = parseInt(localStorage.getItem(SCORE));
   displayText(
     heading,
     `You got ${score} of ${deckSize} answers correct (${

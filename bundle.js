@@ -131,13 +131,7 @@ function handleSubmit() {
   const selected = document.querySelector('input[name="choice"]:checked');
 
   if (selected) {
-    const answer = JSON.stringify(selected.value);
-    const correctAnswer = localStorage.getItem(CORRECT_ANSWER);
-
-    if (answer === correctAnswer) {
-      let score = parseInt(localStorage.getItem(SCORE));
-      setKeyAndValueInLocalStorage(SCORE, score + 1);
-    }
+    checkAnswer(JSON.stringify(selected.value));
 
     if (getCurrentDeckLength() > 0) {
       askAQuestion();
@@ -146,6 +140,15 @@ function handleSubmit() {
     }
   } else {
     displayElement(errorMessage);
+  }
+}
+
+function checkAnswer(answer) {
+  const correctAnswer = localStorage.getItem(CORRECT_ANSWER);
+
+  if (answer === correctAnswer) {
+    let score = parseInt(localStorage.getItem(SCORE));
+    setKeyAndValueInLocalStorage(SCORE, score + 1);
   }
 }
 

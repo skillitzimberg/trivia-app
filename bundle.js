@@ -79,8 +79,8 @@ function removeChildren(elem) {
 function pullTopCardFromDeck() {
   const deck = getCurrentDeck();
   const card = deck.shift();
-  setKeyAndValueInLocalStorage(QUESTIONS, deck);
-  setKeyAndValueInLocalStorage(CORRECT_ANSWER, card.correct);
+  // setKeyAndValueInLocalStorage(QUESTIONS, deck);
+  // setKeyAndValueInLocalStorage(CORRECT_ANSWER, card.correct);
   return [card, deck];
 }
 

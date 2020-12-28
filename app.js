@@ -163,5 +163,10 @@ function finishGame() {
   displayElement(playButton);
 
   const score = localStorage.getItem(SCORE);
-  displayText(heading, `You got ${score} of ${deckSize} answers correct.`);
+  displayText(
+    heading,
+    `You got ${score} of ${deckSize} answers correct (${
+      (score / deckSize) * 100
+    }%).`,
+  );
 }

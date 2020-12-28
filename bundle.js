@@ -22,15 +22,22 @@ playButton.addEventListener('click', () => {
 
 function startGame() {
   hideElement(playButton);
+  displayElement(form);
 
   const deck = getQuestionsForOneRound(deckSize);
 
   setKeyAndValueInLocalStorage(QUESTIONS, deck);
   setKeyAndValueInLocalStorage(SCORE, 0);
 
-  displayElement(form);
-
   askAQuestion();
+}
+
+function hideElement(elem) {
+  elem.className = 'hidden';
+}
+
+function displayElement(elem) {
+  elem.className = '';
 }
 
 function getQuestionsForOneRound(numberOfQuestionsPerRound) {
@@ -53,18 +60,10 @@ function setKeyAndValueInLocalStorage(key, value) {
   localStorage.setItem(key, JSON.stringify(value));
 }
 
-function hideElement(elem) {
-  elem.className = 'hidden';
-}
-
-function displayElement(elem) {
-  elem.className = '';
-}
-
 function askAQuestion() {
   removeChildren(multipleChoice);
 
-  let [card, deck] = pullFirstCardFromDeck();
+  let [card, deck] = pullTopCardFromDeck();
 
   setKeyAndValueInLocalStorage(QUESTIONS, deck);
   setKeyAndValueInLocalStorage(CORRECT_ANSWER, card.correct);
@@ -77,7 +76,7 @@ function removeChildren(elem) {
   }
 }
 
-function pullFirstCardFromDeck() {
+function pullTopCardFromDeck() {
   const deck = getCurrentDeck();
   const card = deck.shift();
   setKeyAndValueInLocalStorage(QUESTIONS, deck);
@@ -87,10 +86,6 @@ function pullFirstCardFromDeck() {
 
 function getCurrentDeck() {
   return JSON.parse(localStorage.getItem(QUESTIONS));
-}
-
-function getCurrentDeckLength() {
-  return getCurrentDeck().length;
 }
 
 function displayTrivia(card) {
@@ -153,6 +148,10 @@ function handleSubmit() {
   } else {
     displayElement(errorMessage);
   }
+}
+
+function getCurrentDeckLength() {
+  return getCurrentDeck().length;
 }
 
 function finishGame() {

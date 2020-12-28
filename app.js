@@ -62,7 +62,7 @@ function setKeyAndValueInLocalStorage(key, value) {
 function askAQuestion() {
   removeChildren(multipleChoice);
 
-  let [card, deck] = pullFirstCardFromDeck();
+  let [card, deck] = pullTopCardFromDeck();
 
   setKeyAndValueInLocalStorage(QUESTIONS, deck);
   setKeyAndValueInLocalStorage(CORRECT_ANSWER, card.correct);
@@ -75,7 +75,7 @@ function removeChildren(elem) {
   }
 }
 
-function pullFirstCardFromDeck() {
+function pullTopCardFromDeck() {
   const deck = getCurrentDeck();
   const card = deck.shift();
   setKeyAndValueInLocalStorage(QUESTIONS, deck);

@@ -147,9 +147,13 @@ function checkAnswer(answer) {
   const correctAnswer = localStorage.getItem(CORRECT_ANSWER);
 
   if (answer === correctAnswer) {
-    let score = parseInt(localStorage.getItem(SCORE));
+    let score = getScore();
     setKeyAndValueInLocalStorage(SCORE, score + 1);
   }
+}
+
+function getScore() {
+  return parseInt(localStorage.getItem(SCORE));
 }
 
 function getCurrentDeckLength() {
@@ -160,7 +164,7 @@ function finishGame() {
   hideElement(form);
   displayElement(playButton);
 
-  const score = parseInt(localStorage.getItem(SCORE));
+  const score = getScore();
   displayText(
     heading,
     `You got ${score} of ${deckSize} answers correct (${

@@ -62,11 +62,11 @@ function askAQuestion() {
 
   let [card, deck] = pullFirstCardFromDeck();
 
-  if (Array.isArray(deck)) {
-    setKeyAndValueInLocalStorage(QUESTIONS, deck);
-    setKeyAndValueInLocalStorage(CORRECT_ANSWER, card.correct);
-    displayTrivia(card);
-  }
+  // if (Array.isArray(deck)) {
+  setKeyAndValueInLocalStorage(QUESTIONS, deck);
+  setKeyAndValueInLocalStorage(CORRECT_ANSWER, card.correct);
+  displayTrivia(card);
+  // }
 }
 
 function removeChildren(elem) {
@@ -147,9 +147,7 @@ function handleSubmit() {
       setKeyAndValueInLocalStorage(SCORE, score + 1);
     }
 
-    const deckLength = getCurrentDeckLength();
-
-    if (deckLength > 0) {
+    if (getCurrentDeckLength() > 0) {
       askAQuestion();
     } else {
       finishGame();

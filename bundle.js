@@ -7,6 +7,7 @@ const playButton = document.getElementById('play');
 const form = document.getElementById('trivia-form');
 const multipleChoice = document.getElementById('multiple-choice');
 const submitButton = document.getElementById('submit');
+const errorMessage = document.getElementById('error');
 
 // Keys for local storage
 const QUESTIONS = 'questions';
@@ -91,14 +92,14 @@ function getCurrentDeckLength() {
 }
 
 function displayTrivia(card) {
-  displayQuestion(card.question);
+  displayText(heading, card.question);
   let choices = card.incorrect;
   choices.push(card.correct);
   displayChoices(choices);
 }
 
-function displayQuestion(question) {
-  heading.textContent = question;
+function displayText(elem, text) {
+  elem.textContent = text;
 }
 
 function displayChoices(choices) {
@@ -134,22 +135,27 @@ submitButton.addEventListener('click', event => {
 });
 
 function handleSubmit() {
-  const correctAnswer = localStorage.getItem(CORRECT_ANSWER);
-  const answer = JSON.stringify(
-    document.querySelector('input[name="choice"]:checked').value,
-  );
+  hideElement(errorMessage);
+  const selected = document.querySelector('input[name="choice"]:checked');
 
-  if (answer == correctAnswer) {
-    let score = parseInt(localStorage.getItem(SCORE));
-    setKeyAndValueInLocalStorage(SCORE, score + 1);
-  }
+  if (selected) {
+    const answer = JSON.stringify(selected.value);
+    const correctAnswer = localStorage.getItem(CORRECT_ANSWER);
 
-  const deckLength = getCurrentDeckLength();
+    if (answer == correctAnswer) {
+      let score = parseInt(localStorage.getItem(SCORE));
+      setKeyAndValueInLocalStorage(SCORE, score + 1);
+    }
 
-  if (deckLength > 0) {
-    askAQuestion();
+    const deckLength = getCurrentDeckLength();
+
+    if (deckLength > 0) {
+      askAQuestion();
+    } else {
+      finishGame();
+    }
   } else {
-    finishGame();
+    displayElement(errorMessage);
   }
 }
 
@@ -158,7 +164,7 @@ function finishGame() {
   displayElement(playButton);
 
   const score = localStorage.getItem(SCORE);
-  displayQuestion(`You got ${score} of ${deckSize} answers correct.`);
+  displayText(heading, `You got ${score} of ${deckSize} answers correct.`);
 }
 
 },{"../trivia-app/trivia":2}],2:[function(require,module,exports){

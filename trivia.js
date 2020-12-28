@@ -1,6 +1,6 @@
-const triviaArray = [
+const allTriviaQuestions = [
   {
-    question: 'What was Tandem previous name?',
+    question: 'What was Tandem‘s previous name?',
     incorrect: ['Tandem', 'Burger Shack', 'Extraordinary Humans'],
     correct: 'Devmynd',
   },
@@ -114,3 +114,5 @@ const triviaArray = [
     correct: 'Perform transactions in Latin',
   },
 ];
+
+exports.allTriviaQuestions = allTriviaQuestions;

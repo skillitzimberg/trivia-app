@@ -4,20 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  <script defer src="trivia.js"></script>
   <script defer src="bundle.js"></script>
   <title>Trivia App</title>
 </head>
 <body>
   <div id="overlay">
-    <main id="console">
+    <main id="main">
       <header>
         <h1 id="heading">TRIVIA!!!</h1>
       </header>
 
       <button id="play">PLAY</button>
 
-      <form method="POST" id="trivia-form">
+      <form method="POST" id="trivia-form" class="hidden">
+        <div id="multiple-choice"></div>
+        <button type="submit" id='submit'>Submit</button>
       </form>
     </main>
 

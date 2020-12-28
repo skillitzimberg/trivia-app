@@ -62,11 +62,9 @@ function askAQuestion() {
 
   let [card, deck] = pullFirstCardFromDeck();
 
-  // if (Array.isArray(deck)) {
   setKeyAndValueInLocalStorage(QUESTIONS, deck);
   setKeyAndValueInLocalStorage(CORRECT_ANSWER, card.correct);
   displayTrivia(card);
-  // }
 }
 
 function removeChildren(elem) {

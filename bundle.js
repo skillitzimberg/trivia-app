@@ -67,6 +67,7 @@ function askAQuestion() {
 
   setKeyAndValueInLocalStorage(QUESTIONS, deck);
   setKeyAndValueInLocalStorage(CORRECT_ANSWER, card.correct);
+
   displayTrivia(card);
 }
 
@@ -79,8 +80,6 @@ function removeChildren(elem) {
 function pullTopCardFromDeck() {
   const deck = getCurrentDeck();
   const card = deck.shift();
-  // setKeyAndValueInLocalStorage(QUESTIONS, deck);
-  // setKeyAndValueInLocalStorage(CORRECT_ANSWER, card.correct);
   return [card, deck];
 }
 
@@ -135,7 +134,7 @@ function handleSubmit() {
     const answer = JSON.stringify(selected.value);
     const correctAnswer = localStorage.getItem(CORRECT_ANSWER);
 
-    if (answer == correctAnswer) {
+    if (answer === correctAnswer) {
       let score = parseInt(localStorage.getItem(SCORE));
       setKeyAndValueInLocalStorage(SCORE, score + 1);
     }

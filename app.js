@@ -133,7 +133,7 @@ function handleSubmit() {
     const answer = JSON.stringify(selected.value);
     const correctAnswer = localStorage.getItem(CORRECT_ANSWER);
 
-    if (answer == correctAnswer) {
+    if (answer === correctAnswer) {
       let score = parseInt(localStorage.getItem(SCORE));
       setKeyAndValueInLocalStorage(SCORE, score + 1);
     }

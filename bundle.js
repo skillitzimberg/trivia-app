@@ -16,6 +16,10 @@ const SCORE = 'score';
 
 const deckSize = 5;
 
+playButton.addEventListener('click', () => {
+  startGame();
+});
+
 function startGame() {
   hideElement(playButton);
 
@@ -122,10 +126,6 @@ function displayChoices(choices) {
 
   form.insertBefore(multipleChoice, submit);
 }
-
-playButton.addEventListener('click', () => {
-  startGame();
-});
 
 submitButton.addEventListener('click', event => {
   event.preventDefault();

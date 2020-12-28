@@ -15,17 +15,28 @@ const SCORE = 'score';
 
 const deckSize = 5;
 
+playButton.addEventListener('click', () => {
+  startGame();
+});
+
 function startGame() {
   hideElement(playButton);
+  displayElement(form);
 
   const deck = getQuestionsForOneRound(deckSize);
 
   setKeyAndValueInLocalStorage(QUESTIONS, deck);
   setKeyAndValueInLocalStorage(SCORE, 0);
 
-  displayElement(form);
-
   askAQuestion();
+}
+
+function hideElement(elem) {
+  elem.className = 'hidden';
+}
+
+function displayElement(elem) {
+  elem.className = '';
 }
 
 function getQuestionsForOneRound(numberOfQuestionsPerRound) {
@@ -46,14 +57,6 @@ function getRandomIntegerLessThan(number) {
 
 function setKeyAndValueInLocalStorage(key, value) {
   localStorage.setItem(key, JSON.stringify(value));
-}
-
-function hideElement(elem) {
-  elem.className = 'hidden';
-}
-
-function displayElement(elem) {
-  elem.className = '';
 }
 
 function askAQuestion() {
@@ -82,10 +85,6 @@ function pullFirstCardFromDeck() {
 
 function getCurrentDeck() {
   return JSON.parse(localStorage.getItem(QUESTIONS));
-}
-
-function getCurrentDeckLength() {
-  return getCurrentDeck().length;
 }
 
 function displayTrivia(card) {
@@ -122,10 +121,6 @@ function displayChoices(choices) {
   form.insertBefore(multipleChoice, submit);
 }
 
-playButton.addEventListener('click', () => {
-  startGame();
-});
-
 submitButton.addEventListener('click', event => {
   event.preventDefault();
   handleSubmit();
@@ -152,6 +147,10 @@ function handleSubmit() {
   } else {
     displayElement(errorMessage);
   }
+}
+
+function getCurrentDeckLength() {
+  return getCurrentDeck().length;
 }
 
 function finishGame() {

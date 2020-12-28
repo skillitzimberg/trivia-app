@@ -54,6 +54,7 @@ h1 {
 h2 {
   font-size: 1.5rem;
 }
+
 form,
 #multiple-choice {
   display: flex;
@@ -70,7 +71,11 @@ input {
 }
 
 input {
-  margin: 0 0 0 1rem;
+  margin: 0 1rem 0 0;
+}
+
+label {
+  font-size: 1.1rem;
 }
 
 #play {
@@ -85,6 +90,13 @@ input {
   font-family: monospace;
 }
 
+#submit {
+  background-color: transparent;
+  border: none;
+  color: #06dd4e;
+  text-transform: uppercase;
+}
+
 .hidden {
   display: none;
 }
@@ -93,4 +105,10 @@ input {
   color: red;
   text-transform: uppercase;
   font-size: 1.5rem;
+}
+
+input,
+#submit,
+#error {
+  margin-top: 1rem;
 }

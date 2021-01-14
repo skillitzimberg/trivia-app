@@ -6,8 +6,6 @@ The company Tandem posted an apprenticeship position. The application included t
 
 The instructions are in this [PDF](Tandem_SEApprentice_Challenge_2020.pdf).
 
-I am trying to build this using TDD and incorporating Robert C. Martin's concept of clean architecture.
-
 ## Acceptance Criteria
 
 - A round of trivia has 10 Questions.
@@ -40,16 +38,6 @@ I am trying to build this using TDD and incorporating Robert C. Martin's concept
 - Use Go Live (VS Code) or your preffered way of running the project in a browser. (I've just been opening the file in Chrome and refreshing when needed. And mostly it's all tests right now so not much is happening in the view.)
 - Run `npm test` to run the tests.
 - If you add logic to `app.js`, run `npm build`, then refresh your browser to see the changes.
-
-Your request number is CUL519405169258. Use it and your IMEI to check the status of your device unlock request.
-Heads up: It may take up to 48 hours to process your request.
-
-If a problem is broken down in such a way so that the "how is a task accomplished in the real world" and "how are those tasks accomplished in a computer", do you end up with clean architecture?
-
-- "how is a task accomplished in the real world" is at the entity layer;
-- "how are those tasks accomplished in a computer" is the interactor layer
-
-These decomposition questions can be rephrased as test cases. They may also point to entity names and methods.
 
 The TANDEM requirements:
 
@@ -87,3 +75,15 @@ The interactors are:
 The "db" is:
 
 - a collection of all possible question/answer sets
+
+### Article
+
+- my thought processes?
+- how did I start?
+- backstory?
+- let the reader into my brain as I build the app?
+- what issues did I run into?
+- what do I know now that I didn't when I started?
+
+[How to write a tech article](https://www.freecodecamp.org/news/how-to-write-a-great-technical-blog-post-414c414b67f6/)
+[Use writing to sharpen your thinking](https://www.youtube.com/watch?v=65U5byDZ55M)
